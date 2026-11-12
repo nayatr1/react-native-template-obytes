@@ -13,9 +13,9 @@ describe('select component ', () => {
     { value: 'strawberry', label: 'Strawberry' },
     { value: 'vanilla', label: 'Vanilla' },
   ];
-  it('should render correctly ', () => {
+  it('should render correctly ', async () => {
     const onSelect = jest.fn();
-    render(
+    await render(
       <Select
         label="Select options"
         options={options}
@@ -27,9 +27,9 @@ describe('select component ', () => {
     expect(screen.getByTestId('select-label')).toBeOnTheScreen();
   });
 
-  it('should render the label correctly ', () => {
+  it('should render the label correctly ', async () => {
     const onSelect = jest.fn();
-    render(
+    await render(
       <Select
         label="Select"
         options={options}
@@ -42,9 +42,9 @@ describe('select component ', () => {
     expect(screen.getByTestId('select-label')).toHaveTextContent('Select');
   });
 
-  it('should render the error correctly ', () => {
+  it('should render the error correctly ', async () => {
     const onSelect = jest.fn();
-    render(
+    await render(
       <Select
         label="Select"
         options={options}
@@ -61,7 +61,7 @@ describe('select component ', () => {
   });
 
   it('should open options modal on press', async () => {
-    const { user } = setup(
+    const { user } = await setup(
       <Select
         label="Select"
         options={options}
@@ -81,7 +81,7 @@ describe('select component ', () => {
   it('should call onSelect on selecting an option', async () => {
     const onSelect = jest.fn();
 
-    const { user } = setup(
+    const { user } = await setup(
       <Select options={options} onSelect={onSelect} testID="select" />,
     );
 

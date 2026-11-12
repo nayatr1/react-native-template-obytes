@@ -2,7 +2,7 @@ import type { LoginFormProps } from './login-form';
 
 import * as React from 'react';
 
-import { cleanup, screen, setup, waitFor } from '@/lib/test-utils';
+import { act, cleanup, screen, setup, waitFor } from '@/lib/test-utils';
 import { LoginForm } from './login-form';
 
 afterEach(cleanup);
@@ -11,12 +11,12 @@ const onSubmitMock: jest.Mock<LoginFormProps['onSubmit']> = jest.fn();
 
 describe('loginForm Form ', () => {
   it('renders correctly', async () => {
-    setup(<LoginForm />);
+    await setup(<LoginForm />);
     expect(await screen.findByTestId('form-title')).toBeOnTheScreen();
   });
 
   it('should display required error when values are empty', async () => {
-    const { user } = setup(<LoginForm />);
+    const { user } = await setup(<LoginForm />);
 
     const button = screen.getByTestId('login-button');
     expect(screen.queryByText(/Email is required/i)).not.toBeOnTheScreen();
@@ -26,14 +26,16 @@ describe('loginForm Form ', () => {
   });
 
   it('should display matching error when email is invalid', async () => {
-    const { user } = setup(<LoginForm />);
+    const { user } = await setup(<LoginForm />);
 
     const button = screen.getByTestId('login-button');
     const emailInput = screen.getByTestId('email-input');
     const passwordInput = screen.getByTestId('password-input');
 
     await user.type(emailInput, 'yyyyy');
-    emailInput.props.onBlur(); // Manually trigger blur to set touched state
+    await act(() => {
+      emailInput.props.onBlur(); // Manually trigger blur to set touched state
+    });
     await user.type(passwordInput, 'test');
     await user.press(button);
 
@@ -42,7 +44,7 @@ describe('loginForm Form ', () => {
   });
 
   it('should call LoginForm with correct values when values are valid', async () => {
-    const { user } = setup(<LoginForm onSubmit={onSubmitMock} />);
+    const { user } = await setup(<LoginForm onSubmit={onSubmitMock} />);
 
     const button = screen.getByTestId('login-button');
     const emailInput = screen.getByTestId('email-input');
