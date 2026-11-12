@@ -1,8 +1,7 @@
 import type { ViewProps } from 'react-native';
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 
-import { ThemeProvider } from '@react-navigation/native';
-import { Stack } from 'expo-router';
+import { Stack, ThemeProvider } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
