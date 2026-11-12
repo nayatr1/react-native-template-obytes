@@ -8,8 +8,8 @@ import * as z from 'zod';
 import {
   Button,
   Input,
+  SafeAreaView,
   showErrorMessage,
-  View,
 } from '@/components/ui';
 import { getFieldError } from '@/components/ui/form-utils';
 import { useAddPost } from './api';
@@ -60,7 +60,7 @@ export function AddPostScreen() {
           headerBackTitle: 'Feed',
         }}
       />
-      <View className="flex-1 p-4">
+      <SafeAreaView edges={['left', 'right']} className="flex-1 p-4">
         <form.Field
           name="title"
           children={field => (
@@ -99,7 +99,7 @@ export function AddPostScreen() {
             />
           )}
         />
-      </View>
+      </SafeAreaView>
     </>
   );
 }

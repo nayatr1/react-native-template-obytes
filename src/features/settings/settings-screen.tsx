@@ -4,6 +4,7 @@ import { useUniwind } from 'uniwind';
 import {
   colors,
   FocusAwareStatusBar,
+  SafeAreaView,
   ScrollView,
   Text,
   View,
@@ -25,8 +26,8 @@ export function SettingsScreen() {
     <>
       <FocusAwareStatusBar />
 
-      <ScrollView>
-        <View className="flex-1 px-4 pt-16">
+      <ScrollView contentInsetAdjustmentBehavior="automatic">
+        <SafeAreaView edges={['left', 'right']} className="flex-1 px-4 pt-16">
           <Text className="text-xl font-bold">
             {translate('settings.title')}
           </Text>
@@ -84,7 +85,7 @@ export function SettingsScreen() {
               <SettingsItem text="settings.logout" onPress={signOut} />
             </SettingsContainer>
           </View>
-        </View>
+        </SafeAreaView>
       </ScrollView>
     </>
   );

@@ -20,7 +20,7 @@ export function OnboardingScreen() {
       <View className="w-full flex-1">
         <Cover />
       </View>
-      <View className="justify-end">
+      <SafeAreaView edges={['left', 'right']} className="justify-end">
         <Text className="my-3 text-center text-5xl font-bold">
           Obytes Starter
         </Text>
@@ -41,8 +41,8 @@ export function OnboardingScreen() {
         <Text className="my-1 text-left text-lg">
           💪 well maintained third-party libraries
         </Text>
-      </View>
-      <SafeAreaView className="mt-6">
+      </SafeAreaView>
+      <SafeAreaView edges={['left', 'right', 'bottom']} className="mt-6">
         <Button
           label="Let's Get Started "
           onPress={() => {

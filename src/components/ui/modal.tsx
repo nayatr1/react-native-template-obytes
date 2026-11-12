@@ -37,6 +37,7 @@ import { BottomSheetModal, useBottomSheet } from '@gorhom/bottom-sheet';
 import * as React from 'react';
 import { Pressable, View } from 'react-native';
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Path, Svg } from 'react-native-svg';
 
 import { Text } from './text';
@@ -165,10 +166,13 @@ const ModalHeader = React.memo(({ title, dismiss }: ModalHeaderProps) => {
 });
 
 function CloseButton({ close }: { close: () => void }) {
+  const insets = useSafeAreaInsets();
   return (
     <Pressable
       onPress={close}
-      className="absolute top-3 right-3 size-6 items-center justify-center"
+      className="absolute top-3 size-6 items-center justify-center"
+      // Live inset: the rail can sit on either edge (84pt on iPhone Duo).
+      style={{ right: insets.right + 12 }}
       hitSlop={{ top: 20, bottom: 20, left: 20, right: 20 }}
       accessibilityLabel="close modal"
       accessibilityRole="button"

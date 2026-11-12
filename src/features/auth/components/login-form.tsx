@@ -4,7 +4,7 @@ import * as React from 'react';
 import { KeyboardAvoidingView } from 'react-native-keyboard-controller';
 import * as z from 'zod';
 
-import { Button, Input, Text, View } from '@/components/ui';
+import { Button, Input, SafeAreaView, Text, View } from '@/components/ui';
 import { getFieldError } from '@/components/ui/form-utils';
 
 const schema = z.object({
@@ -51,7 +51,7 @@ export function LoginForm({ onSubmit = () => {} }: LoginFormProps) {
       behavior="padding"
       keyboardVerticalOffset={10}
     >
-      <View className="flex-1 justify-center p-4">
+      <SafeAreaView edges={['left', 'right']} className="flex-1 justify-center p-4">
         <View className="items-center justify-center">
           <Text
             testID="form-title"
@@ -121,7 +121,7 @@ export function LoginForm({ onSubmit = () => {} }: LoginFormProps) {
             />
           )}
         />
-      </View>
+      </SafeAreaView>
     </KeyboardAvoidingView>
   );
 }
