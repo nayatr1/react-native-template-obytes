@@ -10,8 +10,8 @@ export function StyleScreen() {
   return (
     <>
       <FocusAwareStatusBar />
-      <ScrollView className="px-4">
-        <SafeAreaView className="flex-1">
+      <ScrollView contentInsetAdjustmentBehavior="automatic">
+        <SafeAreaView edges={['left', 'right']} className="flex-1 px-4">
           <Typography />
           <Colors />
           <Buttons />

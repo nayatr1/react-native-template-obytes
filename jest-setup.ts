@@ -7,6 +7,11 @@ jest.mock('react-native-worklets', () => ({
   default: {},
 }));
 
+// Official safe-area mock: zero insets by default, SafeAreaProvider honors
+// initialMetrics so tests can simulate the iPhone Duo vertical rail.
+jest.mock('react-native-safe-area-context', () =>
+  require('react-native-safe-area-context/jest/mock').default);
+
 // Mock react-native-reanimated
 jest.mock('react-native-reanimated', () => {
   const View = require('react-native').View;

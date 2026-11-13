@@ -35,7 +35,9 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   scheme: Env.EXPO_PUBLIC_SCHEME,
   slug: 'obytesapp',
   version: Env.EXPO_PUBLIC_VERSION.toString(),
-  orientation: 'portrait',
+  // Free rotation so the iPhone Duo open display can be used in landscape
+  // (the tab sidebar only appears there).
+  orientation: 'default',
   icon: './assets/icon.png',
   userInterfaceStyle: 'automatic',
   updates: {
