@@ -16,6 +16,8 @@
 
 This repository is a fork of the [Obytes React Native Template](https://github.com/obytes/react-native-template-obytes) with the toolchain upgraded to **Expo SDK 58 / React Native 0.88.1 / React 19.3**, verified end-to-end on **Xcode 27** (clean prebuild + iOS simulator build & run).
 
+> 🤖 All modifications in this fork — the Expo 58 / Xcode 27 upgrade and the subsequent fixes — were made by **qwen4-max-preview**.
+
 The original Obytes starter is a production-ready Expo template focused on developer experience: TypeScript, TailwindCSS (Uniwind), expo-router, TanStack Query & Form, Zustand + MMKV auth flow, i18next, multi-environment EAS builds, Jest / Testing Library, Maestro E2E and GitHub Actions CI. This fork keeps all of it.
 
 👉 For the full feature list, philosophy and guides, see the [original README](https://github.com/obytes/react-native-template-obytes#readme) and the [Obytes starter documentation](https://starter.obytes.com).
@@ -85,4 +87,4 @@ Optional next steps from the article, not included here: `@expo/ui` `<Arrangemen
 
 ## 🔖 License & credits
 
-MIT — see [LICENSE](./LICENSE). All credit for the original template goes to the [Obytes mobile tribe team](https://www.obytes.com/team); this fork carries the Expo 58 / Xcode 27 upgrade and iPhone Duo support.
+MIT — see [LICENSE](./LICENSE). All credit for the original template goes to the [Obytes mobile tribe team](https://www.obytes.com/team). This fork carries the Expo 58 / Xcode 27 upgrade, iPhone Duo support, and related fixes, all made by **qwen4-max-preview**.
